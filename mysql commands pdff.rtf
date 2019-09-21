@@ -1,0 +1,811 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Courier New;}{\f1\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red255\green0\blue0;}
+{\*\listtable 
+{\list\listhybrid
+{\listlevel\levelnfc23\leveljc0\levelstartat1{\leveltext\'01\'B7;}{\levelnumbers;}\f1\jclisttab\tx0}
+{\listlevel\levelnfc0\leveljc0\levelstartat1{\leveltext\'02\'01.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc4\leveljc0\levelstartat1{\leveltext\'02\'02.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc3\leveljc0\levelstartat1{\leveltext\'02\'03.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc2\leveljc0\levelstartat1{\leveltext\'02\'04.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc1\leveljc0\levelstartat1{\leveltext\'02\'05.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc0\leveljc0\levelstartat1{\leveltext\'02\'06.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc4\leveljc0\levelstartat1{\leveltext\'02\'07.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc23\leveljc1\levelstartat1{\leveltext\'01\'B7;}{\levelnumbers;}\f1\jclisttab\tx0}\listid1 }}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+{\*\generator Riched20 6.3.9600}\viewkind4\uc1 
+\pard\f0\fs22\lang16393                 SQL  NOTES \par
+    \par
+1.create  database  ustglobal;\par
+2.show databases;  // to see databases\par
+3.use ustglobal;  // to use database\par
+4.show tables;      // to show table\par
+5.create table student(id int, name varchar(120),email varchar(150);\par
+6.desc student;    // to show structure of table\par
+7.drop table student // to delete table \par
+8.drop database ustglobal; // to remove database\par
+9. create table human(id int, name varchar(120), email varchar(150));\par
+10. alter table human add mobileno int;  //add a colomn\par
+11.alter table human add address varchar(150);\par
+12.alter table human drop address ; // remove colomn\par
+13.alter table human change name humanname varchar(120);//rename colomn\par
+14.rename table human to student;  // rename table\par
+15truncate table student; // to delete data\par
+16.select * from student;//to display data in table\par
+17.\par
+18.\par
+\par
+19. //we can not rename database in mysql\par
+20.// truncate only delete the data remains structure\par
+21.//drop used to delete the whole table \par
+22.insert into student(id,studentName)values(01,'pryanka')\par
+23.//write a query to diplay details whose name is priya //\par
+      select * from student were studentName='priya';\par
+24.update  student set mobileno 9638 where id=10;  // update the data in table\par
+25.delete from student wherewhere id=12; //delete data from table \par
+25.ALIAS: used to give a table, or colomn temporary name.\par
+                  [SELECT colomn_name as new-name;]\par
+28.//write a query to give a temporary name to bloodgroup as bg\par
+           select bloodgroup as bg from employee_info;\par
+29.// write a query to display employename, sal, designation,annual salary\par
+              select  id, name , salary, salary*12 as annualsalary from employee_info;\par
+30. // write a query to ive alias name for all colomns in table\par
+\par
+31.DISTINCT: select distinct designation from employee_info;\par
+\par
+32.//write a query to display unique deptno\par
+    select distinct deptd from employee_info;\par
+\par
+33. if more than arg is passed to ditinct r will remove the combinatin of colomn duplicate \par
+\par
+33.// w a q todisplay unique valueof designation aswellas deptid\par
+     SELE\par
+34. // W a t d unique deptid,age,designation from table\par
+ select distinct depy_id, age, designation from employye_info;\par
+\par
+35.operator: operator is a resrved word used primarily in sql statemnts\par
+       . arithmatic operators\par
+       . comparision operatior\par
+       . logical operators\par
+       . special operator\par
+\par
+ *> Arithmatic operators:\par
+ used to perform some arithmatic operations [+, - ,* ,/ ,%]\par
+\par
+ *> Comparision operators:\par
+ checks values of two operands  [=,!=,<>,<,>,>=,<=,]\par
+\par
+ *>Logical Operators:   [ and , or, not ]\par
+\par
+ AND:\par
+\par
+   A  B  A^B\par
+   \par
+    t   t  t\par
+    f   t  f\par
+    t   f  f\par
+    f   f  f\par
+\par
+ case(1): if 1st condition is false, and operator will return false without  checking 2st condition.\par
+case(2): if the 1st condition is true then result depend upon 2nd vondition.\par
+case(3):  if both cases are true  the result condition is true.\par
+\par
+OR:\par
+           A B  A|B\par
+           t t   t\par
+           f t   t\par
+           t f   t\par
+           f f   f\par
+\par
+ case(1): if the 1st  and 2nd condition condition is false then it will return  false ony\par
+\par
+case(2): if the 1st condition is false then the result depends upon 2nd condition. if the 2nd condition is true then the result is true.\par
+\par
+syntax: select * from table-name  wherecolomn-name=value or colomn-name=value;\par
+  \par
+NOT:    \par
+           A  ~A\par
+           t   t   \par
+           f   t   \par
+ \par
+SPECIAL OPERATORS:    [in ,between]\par
+       \par
+ IN: \par
+            used to evaluate the multiple comlomn name.\par
+\par
+select * from table-name where colomn-name IN(list of values);\par
+\par
+between:\par
+            used to find the range of values. \par
+   \par
+select * from table-name where colomn-name between value1 and value2 ;\par
+\par
+not in:\par
+     not in operator is a multivalued operator \par
+select * from table-name where colomn-name NOT IN(list of values);\par
+ \par
+not  between: \par
+           which  is  used  to display values which are excluding the range               \par
+ \par
+select * from  table-name where colomn-name not between  value1 and value2; \par
+\par
+IS operator: \par
+                              used to check the null value . if the record is null then it will return the null value.\par
+\par
+\par
+36. // w a q to display  id name salary whoes salary is incremented by 5000\par
+\par
+   select  id, name,salary, salary+300 as inc_sal from employee_info\par
+\par
+37 // w a q t disply annual salary\par
+\par
+    select id,name, salary*12 as annual_sal from a\par
+employee_info;\par
+       \par
+38. // w a q to display daily salary\par
+\par
+     select salary /30  as  daily_salary from employee_info;\par
+\par
+39. // w a q  to display all the records xcluding dept_no 10\par
+\par
+       select * from employee_info where id!=10;\par
+\par
+40. // w a q to display whose sala>5000\par
+        select * from employee_info where salary>5000;\par
+\par
+50. // w a q to display whose sala<5000\par
+\par
+        select * from employee_info where salary<5000;\par
+\par
+51. //w a q to dis whose salary>= 1500\par
+\par
+        select * from employee_info where salary<=1500;\par
+\par
+52.// w a q to display all the records who is working in deptno                                   20  only if salary is greater than 1000\par
+      \par
+ select * from employee_info where sal>1100 and dept_id=20;\par
+    \par
+53.// w a q to display all rec who is working as saleman and dob is 1995\par
+  \par
+\par
+54.//w a q to dis all the records whose salary is 100000as well as designation is analyst\par
+    \par
+\par
+55.// w a query o display id, name, emailid whoes age is 22 and whose salary is 1120\par
+ \par
+\par
+56.// w a q to dis all the records whose id not = 10,20,30\par
+    \par
+     select * from employee_info where  not id=10 and not id=20;\par
+\par
+57.//  w a query to dispay all the records of employees excluding sales man who are all working in deptNo=40\par
+    \par
+select * from employee_info where not(designation='salesman'           and  dept_id=30);\par
+\par
+58.//w a q to dis play all recors who is woking as a salesman for dept_id=20 or 30\par
+\par
+select * from employee_info where  designation='salesman' and (dept_id=10 or dept_id=20); \par
+\par
+59.// wa q to dis all emp who is working in deptno=20 only if their sal>10000 & <25000 including 10000 and 25000 \par
+ \par
+select * from employee_info where id=20 and (salary>=10000  and salary<=25000)\par
+\par
+60. // w a q to dis all  the records who is working as a  software developer and dob in 1994\par
+    \par
+\par
+61.//  w a q to display  employee who is working in dept 10 and 20 and 30\par
+    \par
+  select * from employee_infi where dept_id in(10,20,30);\par
+ \par
+62. // w a q whose designaiton is tester hr analyst\par
+ \par
+ select * from employee_infi where designation in ('analyst','hr','tester');\par
+\par
+63. // w a q to display who are working as a clerk  in dep 20 30         40\par
+\par
+  select * from employee_infi where designation='clerk' and dept_id in(10,20,30);\par
+\par
+65.// w a q to display who are working as a clerk  in dep2030 40    \par
+\par
+       select * from employee_infi where designation='clerk' and dept_id  not in(10,20,30);\par
+\par
+\par
+66.// w a query who are working in a dept  20 40 60 excluding salesman or analyst\par
+       \par
+select * from employee_infi where designation not in('clerk','salesman') and dept_id  not in(10,20,30);\par
+\par
+67.//w a q to all the details of emp whose sal between a range of 12000 and 25000\par
+\par
+   select * from employee_infi where salary between 1100 and 25000;\par
+\par
+68.//write a query to display all the records of employee who hired  2017\par
+\par
+select * from employee_info where doj between '2017-01-01' and  '2017-12-31';\par
+\par
+69.//write a query to select all details of employees excluding who hired in 2019\par
+ \par
+select * from employee_info where doj  not between '2019-01-01' and  '2019-12-31';\par
+\par
+\par
+70.//write a query to display empname salary and deptno of all emp who are working in dept 10 or 20 excluding employee whose salaray greater or equal 15000 and less than or equal to 50000\par
+ \par
+select * from employee_info where dept_id in(10,20) and salary not between(15000,50000);\par
+\par
+71.// weite a query to display  annual salary if his designation is null\par
+\par
+select * from employee_info where designation is null;\par
+\par
+\par
+72.// weite a query to display  annual salary if his designation is not null\par
+\par
+select * from employee_info where designation is not  null;\par
+\par
+LIKE:    \par
+                  Like operator is used  to perform pattern matching  \par
+  \par
+Syntax :  select * from table_name like   '   '  ;\par
+\par
+\par
+characteristics are of two types : 1.ordinary  character  type\par
+                                                                 2. special   character  type(wild card)\par
+                                                                                 ||\par
+                                                                                 ||\par
+                                                                                 \\ /\par
+                                                                            " %  ,   _  "\par
+\par
+"   _  "   :      if  want  to mtch exact one  character  then wue use underscore\par
+\par
+"  %    "  :   if  want to match  0  or  'n'  characters\par
+\par
+\par
+73. // write a query to display a employee name whose name starts with  's'\par
+\par
+   select * from employee_info where name like 's%';\par
+\par
+74.// write a query to display whose name  contains only 5 character\par
+\par
+ selct * from employee_info where name like'_____';\par
+\par
+75.// write a query to display name, salary,dob whose name starts with 's' and end with 's'\par
+\par
+  selct  name,salary,dob from employee_info where name like' s%s';\par
+\par
+76.// write a query to display all infor of employee whose  designation contains atleat two  'ee'.\par
+selct * from employee_info where name like'%s%s%';\par
+\par
+76//.write a quey to all employee display length is 5 and  1st char is"s'. 2nd last is 'L'\par
+selct * from employee_info where name like 's____l_ ';\par
+\par
+\par
+77.// write a query if name of employee is starts with 'r' or 'z' \par
+\par
+selct * from employee_info where name like 'r%' or like 'z%'  ;\par
+\par
+78.//write a quey to all employee display  whoes name 3rd char is 'c' and 6th char 'i'\par
+ select * from employee_info where name like'__c__i%';\par
+\par
+NOT LIKE:     select * from table_name where  colomn not like '     ';\par
+  which select all the string which does not match with the given string\par
+\par
+79. w a q to all excluding whose name starts  with 'a'\par
+\par
+selct * from employee_info where name  not like 's%'  ;\par
+\par
+\par
+\par
+FUNCTIONS:\par
+\par
+\par
+1. FUNCTION IS A BLOCK OF CODE WHICH SHOULD PERFORM SOME\par
+sepcified  TASK.\par
+ for doing operations on data sql has many built in functions\par
+\par
+2.FUNCTION ATTRIBUTES: \par
+                                     It has input arguments . In SQL has prdefined functions\par
+\par
+              1.scalar functions /single-row-func   --------- upper,lower,concat\par
+               2.aggrigate functions/multi-row-func -------avg,count,max,min,sum\par
+\par
+\par
+multi-row-func:     for multiple input only one output will come\par
+\par
+                           \par
+                           |                      i/p---------------------|  |                       i/p----------------------| | ------------------- o/p                                                                     i/p----------------------| |                                               \par
+i/p----------------------| |                       \par
+                                                      \par
+single-row-func:  \par
+           \par
+ for each and every input output there will be correspnding output \par
+\par
+           i/p-----------------o/p\par
+           i/p------------------o/p\par
+           i/p-------------------o/p\par
+           i/p------------------o/p\par
+\par
+80.// w q avg salary of employee\par
+\par
+select  avg(salary) as avgsal  from employee_info;\par
+\par
+ 81.// wa q to avg sal, min sal,max sal\par
+   \par
+select min(sal) as minisal from employee_info;\par
+ select max(sal) as mxsal from employee_info;\par
+select  avg(sal) as mxsal from employee_info;\par
+--------------------------------------------------------------------------------------------------------------------------------\par
+  \par
+ASSAIGNMENT-1:\par
+\par
+1.//W A Q TO DISPLAY employee working dept 20\par
+ \par
+select * from employee_info where dept_id=20;\par
+\par
+2.// W A Q TO DISPLAY employee earning more than 25000\par
+  \par
+select * from employee where salary>2500;\par
+\par
+3.//W A Q TO DISPLAY employee  whose job is software developer\par
+  \par
+select * from employee where designation='developer';\par
+\par
+4.// W A Q TO DISPLAY employee  whose dept_id ia 10,20,30\par
+    \par
+select * from employee_info where dept_id in(10,20,30);\par
+\par
+5.// W A Q TO DISPLAY employee  whose name starts with 's'\par
+\par
+select * from employee where name like 's%';\par
+\par
+6.// W A Q TO DISPLAY employee  whose name 2ndletter  with 'L' \par
+\par
+select * from employee where name like '_l%';\par
+\par
+7.// W A Q TO DISPLAY employee  whose name have atleat 2 'a' characters\par
+\par
+select * from employee where name like '%a%a%';\par
+\par
+8.// W A Q TO DISPLAY employee  whose name 2nd last letter  with 'a' \par
+\par
+\par
+select * from employee where name like '%e_';\par
+\par
+9.// W A Q TO DISPLAY employee  whose has exactly 5 char \par
+\par
+select * from employee where name like '_____';\par
+\par
+\par
+10.// W A Q TO DISPLAY employee whose salary between 20000 and 30000;\par
+  \par
+select * from employee where salary between 20000 and 30000;\par
+\par
+--------------------------------------------------------------------------------------------------------------------------------\par
+\par
+ASSAIGNMENT-2:\par
+\par
+1.// W A Q TO DISPLAY WHOSE  dept_id=10 and software developer\par
+  \par
+select * from employee  where dept_id=10 and  designation='software developer';\par
+\par
+2.// W A Q TO DISPLAY WHOSE  dept_id=10 and software developer and salary>5000;\par
+\par
+  select * from employee  where dept_id=10 and designation='software developer' and salary>50000;\par
+\par
+3.// W A Q TO DISPLAY Wall details wxcept thode whose dept_id=10and 20 and 30\par
+\par
+  select * from employee_ info where dept_id not in(10,20,30);\par
+\par
+4.//.// W A Q TO DISPLAY Wall details wxcept thode whose job is clerk and develpoer and dept 10,20,30 with asalary oof range of 10000 and 30000\par
+\par
+select * from employee_info where salary  not between 10000 and 20000 and dept_id not in(10,20,30) and designation not in('developer','clerk);\par
+\par
+5.// W A Q TO DISPLAY Wall details wxcept  whose dept 10,20,30 with salary not a  range of 10000 and 20000  except salesman\par
+\par
+ select * from employee_info where salary not between 10000 and 20000 and dept_id in(10,20,30) designation!='salesman';\par
+\par
+6.// w a q to arrange  employees by their salary in desending order \par
+\par
+ select * from employee_info order  by salary;\par
+\par
+7.// write a query to display max, min,total salry\par
+select \par
+\par
+select min(sal) as minisal from employee_info;\par
+ select max(sal) as mxsal from employee_info;\par
+select  avg(sal) as mxsal from employee_info;\par
+  \par
+8.//write a query to display list of  no.of mployees working \par
+in dept 20\par
+\par
+ select * from employee_info where dept_id=20 ;\par
+\par
+9.//write a query to display list of employees highest sal and lowest sal earned by salesman\par
+\par
+select max(salary),min(salary) where designation='salesman' from employe_info;\par
+\par
+10.write a query to display  total salarry of  all department\par
+ \par
+ select  sum(salary) from employee_info group by dept_id;\par
+--------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\par
+\par
+82.//wrie a q to display doj after 2016\par
+\par
+ select * from emoloyee_info where doj>'30-12-2016';\par
+\par
+83.//write a q avg sal and higest sal of dept 20,30,40and 60\par
+\par
+   select max(salary),avg(salary) from employee_info where  dept_id in(10,20,30); \par
+    \par
+84.// write a query to display all detals of employee date of 1st and last hired emploee \par
+\par
+  select   min(doj),max(dob) from employee_info;\par
+  \par
+\par
+SCALAR FUNCTIONS:\par
+\par
+UPPER: convrts the value of a field to to uppercase\par
+\par
+LOWER: convrts the value of a field to to lowercase\par
+\par
+LENGTH: finds the value of field\par
+\par
+INITCAP():  1st char in capital rest in small not support for             \par
+      myql  supports in oracle\par
+\par
+concat():Used to concatinate two strings functions.\par
+\par
+reverse(): Used to revers the reverse a string.\par
+\par
+85.// write a query to merge name and salary\par
+  \par
+select conacte(name,salary) from employee_info;\par
+\par
+86.//write a query to  reverse of names \par
+\par
+\par
+ SUBSTR():\par
+\par
+          it is a func used to extract a string from given string it takes 3 arguments\par
+  \par
+SYNTAX:\par
+   SELECT  substr(string,position,length) from tablename;\par
+\par
+\par
+arg-1: string is an arg which we passed\par
+arg-2: it is a number  which specifies the position of a string.\par
+arg-3: it just specifies the length of new string\par
+  \par
+87.// w a q to display employee name  only 3 characters\par
+ select substr(name,1,3) from employee_info;\par
+\par
+88.// w a quetry to dispaly whose name begin with consonent\par
+\par
+  select name from employee_info where substr(name,1,1) not in('a','e','i','o','u');\par
+\par
+INSTR():\par
+\par
+   USED TO CHECK weather substr is present in given string or not \par
+if a substring is not present in string then this function wil return zero. it is used to check the integer.\par
+\par
+SYNTAX:\par
+       SELECT INSTR(STRING, SUBSTRING) FROM TABLE-NAME;\par
+\par
+ arg-1: STRING:  IT IS A STRING  USED TO FIND SUBSTR\par
+ arg-2: SUBSTRING: IT IS A SUBSTRING \par
+\par
+\par
+89.// write a quey to search the position of a  in the name colomn \par
+  select   instr(name,'a') from employee_info;\par
+\par
+ REPLACE:\par
+        \par
+        used to replace a string in a given string\par
+\par
+ SYNTAX:\par
+        SELECT REPLACE(string,SUBSTR1,SUBSTR2) FROM  TABLE-NAME;\par
+\par
+90.//  WRITE A QUERY TO REPLACE NAME 'A' WITH 'Z'\par
+\par
+ select  replace(name,'a','z') from employee_info;\par
+\par
+91.// write a query to display no. of employees who is working in dept 30 and salary is 15000\par
+\par
+\tab select count(*) from employee_info where salary=15000 and deplt_id=30;\par
+\par
+\par
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\par
+GROUP BY CLAUSE:\par
+               \par
+  GROUP BY STATEENT GROUP ROWS THAT HAVE THE SAME VALUES INTO SUMMARY ROWS . \par
+           \par
+ GROUP BY STATEMENT OFTEN USD WITH THE AGGRIGATE FUNCTIONS LIKE(COUNT MAX MIN AVG) TO GROUP THE RESULT-SET BY ONE OR MORE COLUMNS.\par
+\par
+SYNTAX:\par
+\par
+SELECT COLOMN-NAME \par
+FROM TABLE-NAME \par
+WHERE CONDITON \par
+GROUP BY COLOMN-NAME;\par
+\par
+NOTE: group by clause executes row by row. after the execution of group by the records  are grouped.\par
+*Therefore all the clause will execute after the execution of       \par
+    group by clause . \par
+* group by clause will excute group by.\par
+* GROUP BY CLAUSE IS USED WITH AGGRIGATE FUNCTIONS\par
+\par
+\par
+\par
+92.// WRITE A Q TO DISPLAY HIGHEST SALARY FROM EACH DEPARTMENT\par
+\par
+     select max(salary) from employee_info group by dept_id;\par
+\par
+93.// WRITE A QUERY TO DISPLAY NO.OF SOFTWARE WORKING IN EACH DEPARTMENT\par
+     \par
+     select * from employee_info where designation='software' group by det_id;\par
+\par
+94.// WRITE A QUERY TO DISPLAY MIN SALARY IN EACH DESIGNATION\par
+  \par
+\par
+HAVING CLAUS:\par
+       \par
+HAVING CLAUSE IS OFFEN USED WITH THE GROUP BU CLAUSE TO FILTER GROUPS BASED ON A SPECIFIED CONDITION. \par
+IN HAVING CLAUSE WE CAN'T USE ONLY AN COLOMN IE,  USED  IN GROUP BY CLAUSE.\par
+\par
+ SYNTAX:\par
+  SELECT COLOMN-NAME\par
+    FROM TABLE-NAME\par
+    WHERE CONDITION\par
+    GROUP-BY COLOMN-NAME\par
+    HAVING CONDITION \par
+\par
+ORDER OF EXECUTION : \par
+\par
+   HAVING CLAUSE EXCUTES AFTER GROUP BY CLAUSE THEREFORE WE WILL CHECK THE CONDITION AFTER GROUPING\par
+ SINCE IT EXECUTES AFTER EVERY  GROUP IT WILL CHECK CONDITION\par
+ \par
+95.//WRITE A Q TO DISPLAY  DEPT NUMBER WHICH HAS ATLEAST FOUR WORKING EMPLOYEES.\par
+ \par
+select dept_id from employee_info group by dept_id having count(dept_id)>4;\par
+\par
+96.// W A Q TO DISPLAY NO. OF DEPTNO. WHICH HAS TOTAL SALARY > 20000\par
+select dept_id,sum(salary) from employee_info having sum(salary)>20000;\par
+\par
+97.// W A TO ALL DEPT WHOES AVG SALARY >20000 EXCLUDING THE EMPLOYEE WHOSE NAME BEGINS WITH S\par
+\par
+  select name,dept_id,avg(salary)>2000 from employee_info where name not like('s%') group by dept_id having avg(salary)>20000;\par
+\par
+ORDER BY CLAUSE :\par
+     \par
+           THE ORDER BY CLAUSE KEYWORDIS USED TO SORT THE RESULT SET IN ASCENDING ORDER OR DESCENDING ORDER\par
+\par
+THE ORDER BY CLAUSE SORTS THERECORDS IN ASCENDING ORDER ORDER BY DEFAULT. TO SORT SORT IN DESCENDING ORDER WE USE THE SESC KEYWORD\par
+\par
+SYNTAX:\par
+      SELECT COLOMN1,COLOMN2,....FROM TABLE-NAME\par
+      ORDER BY COLOMN1,COLOMN2,....ASC|DESC;\par
+\par
+OREDR OF EXECUTION:    from>WHERE>groupby>having>select>ORDER BY \par
+ \par
+note:   Order by class excecute after the execution of \par
+ order by class  by default should  be the last claue to be written in the syntax always \par
+ \par
+If the group by clause used order by clause we can use aggrigate function or multi row function.\par
+\par
+only the colomn name which is use the group by clause.\par
+\par
+\par
+98.//  WRITE A QUERY TO DISPLAY ALL THE  RECORS SALARY SHOULD BE ASCENDING ORDER\par
+\par
+ select * from employee_info order by salary;\par
+\par
+99.// write a query TO DISPLAY NAME, DESIGNATION,DOJ OF ALL EMPLOYEE WHO ARE  WORKING IN EAITHER  ANY ONE OF THE DEPARTMENTS 10,20,50,60 SORT THE RECRDS IN DESCENDING OREDER BY THEIR SALARY..\par
+  \par
+SELECT NAME, DESIGNATION, DOJ FROM EMPLOYEE_INFO WHERE DEPT_ID IN(10,20,30,50,60) ORDER BY DEPT_ID DESC;\par
+\par
+100.// WRITE A QUERY TO DISPLAY DEPT_ID ALONG WITH  NO. OF EMPLOYEES IN IT.\par
+  \par
+ \par
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+  \par
+101.// WRITE A Q TO DSPLAY WHOSE DESIGNATION IS TESTER AND SOFTWSRE DEVELOPER\par
+\par
+select *  from employee_info where designation ('tester','developer');  \par
+\par
+\par
+\par
+\cf1\b SUB-QUERY:\par
+\cf0\b0\par
+     A QUERY WITHIN ANOTHER QUERY IS CALLED AS SUBQUERY. A SUBQUERY ALSO CALLED  AS INNER-QUERY.\par
+\par
+SUB QUERY IS ANOTHER WAY TO FETCH THE DATA FROM  MULTIPLE TABLES\par
+\par
+\par
+WHATEVER THE INNER QUERY SHOULD  BE ENCLOSED WITHIN PARANTHESIS\par
+\par
+SUB-QUERIES ARE CLASSIFIED INTO TWO CATEGERIES\par
+               1.SINGLE-ROW SUBQUERY\par
+               2.MULTI-ROW SUBQUERY\par
+\par
+ NOTE:\par
+INNER-QUERY IS THE 1ST EXECUTABLE AND IT TAKES THE INPUT FROM THE OUTER -QUERY.\par
+ \par
+OUTPUT OF INNER QUERY TAKES THE INPUT FROM INNER-QUERY.THEN THE FINAL RESULT FROM THE OUTER QUERY.\par
+\par
+\b\fs28 WHEN TO USE SUB-QUERY MAIN CLAUSE??\par
+\b0\fs22   \par
+*1> THE GIVEN CONDITION  CONTAINS UNKNOWN VALUE THEN WE CAN USE     SUB-QUERY TO OBTAIN THE UNKNOWN VALUE.\par
+ \par
+*2> IF THE COLOMN TO BE SELECTED AND THE CONDITION TO BE FILTERED A GIVEN TWO DIFFERENT TABLES WE CAN USE A SUB-QUERY.\par
+\par
+\par
+\b\fs28 1.SINGLE-ROW SUBQUERY:\par
+\b0\fs22                     \par
+IF THE SINGLE VALUE OPERATORS SUCH AS EQUAL TO,LESS THAN,GREATER THAN,LESS THAN,NOT EQUAL TO(=,!=,<,>)ARE USED\par
+\par
+WE CALL IT AS 'SINGLE-ROW-SUBQUERY'.\par
+\par
+SINGLE ROW SUB QUERY MUST  AND SHOULD RETURN A SINGLE RECORD \par
+\par
+SYNTAX:\par
+ \par
+ SELECT COLOMN1,COLOMN2,.....FROM TABLE WHERE COLOMN1 OPERATOR\par
+(SELECT COLOMN FROM TABLE WHERE EXPR1=VALUE);\par
+\par
+\b\fs28 2.MULTI-ROW SEUBQUERY:\par
+\b0\fs22\par
+WE CALL IT AS "MULTI-ROW SUBQUERY"\par
+\par
+MULTI-ROW SUBQUERY CAN RETURN ONE OR MORE NUMBER OF ROWS (INNER QUERY CAN RETURN ANY NO. OF ROWS)\par
+\par
+\b SYNTAX:\par
+\b0\par
+\fs28 SELECT COLOMN1,COLOMN2,.....FROM TABLE WHERE COLOMN1 OPERATOR\par
+(SELECT COLOMN FROM TABLE WHERE EXPR1=VALUE);\par
+\par
+103.//WRITE A Q TO DISPLAY WHO IS WORKING FOR RESEARCH DEPARTMENT\par
+\par
+select  name from employee_info where dept_id =(select  dept_id from department where deptname='research');\par
+\par
+104.// WRITE A QUERY TO DISPLAY EMPLOYEE  WHO IS WORKING IN LOCATION WHICH HAS ATLEAST ONE 'A' CHARACTER IN ITS NAME\par
+\par
+ select  location from department where dept_id in(select  dept_id from  employee_info where  name  like('%a%'));\par
+\par
+ 105.// WRITE A QUERY TO OBTAINE 2ND MAX SALARY FROM EMPLOYEE_INFO TABLE\par
+\par
+select   max(salary) from employee_info where salary <(select  max(salary) from employee_info);\par
+\par
+106.//WRITE A QUERY TO DISPLAY THE 3RD MAX SALARY\par
+\par
+    select   max(salary) from employee_info where salary <(select  max(salary) from employee_info where  salary <(select  max(salary) from employee_info)) ;\par
+\par
+\fs22\par
+\fs28 JOINS:\par
+\par
+JOINS IS USED TO FETCH THE DATA FROM TWO ARE MORE TABLES\par
+\par
+IT IS USED FOR COMBINING COLOMN FROM TWO OR MOE TABLES BY USING VALUES COMMON COLOMN TO HOST  THE TABLES.\par
+\par
+JOIN IS A KEYWORD USED IN SQL QUERIES FOR JOINING TWO OR MORE TABLES \par
+\par
+MINIMUM  REQUIRED CONDITION FOR JOINING TABLES IS AT LEAST NO. OF TABLES SHOULD BE TWO.\par
+  \par
+TYPES OF JOINS:\par
+\par
+*1> CARTESIAN JOIN/ CROSS JOIN:\par
+\par
+RETURNS ONLY THE CARTESIAN PRODUCT OF ROWS FROM THE TABLE IN JOIN.  \par
+\par
+ RECORD FROM ONE TABLE IS MERGED WITH EACH RECORD WITH THE ANOTHER TABLE OR JOIN TWO TABLES WILL MERGE WITH EACH AND EVERY RECORD  WITH THE RIGHT TABLE\par
+\par
+IN ANOTHER WORDS IT GIVES US COMBINATIONS OF EACH ROW OF FIRST TABLE WILL ALL RECORDS IN SECOND TABLE\par
+\par
+SYNTAX:\par
+\par
+SELECT COLOUMN-NAME-LIST\par
+FROM TABLE-NAME1 CROSS JOIN TABLE-NAME1;\par
+\par
+107.// WRITE A QUERY TO DISPLAY ALL THE RECORDS OF CRATESIAN JOIN \par
+\par
+\b\fs32 Inner join\fs28 :\par
+\b0\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls1\fi-360\li360 Joining two tables with the help of joint colomn is known as inner-join.\fs22\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls1\ilvl8\fi-360\li360\fs28 select colomn_name table_name inner join table2_name on condition\fs22\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls1\fi-360\li360\fs28 common data present in both the table is displayed in the i ner join.\fs22\par
+
+\pard\fs28\par
+\b\fs32 outer-join :\par
+\par
+\b0\fs28     There are 3 types of joins.\par
+\b\fs32\par
+\b0 1.\fs28 Left-outer join.\fs22\par
+\fs28 2.Right-outer join.\fs22\par
+\fs28 3.Full-outer join.\par
+ \par
+
+\pard\fi-360\li360\fs22 1. \par
+ \fs28 it ges the inner join + matched record of ledt table\par
+the record do not have pair(matched) in the opposite table with respect to joins it will returns the \fs22\par
+
+\pard\b\fs28\par
+\par
+\b0\fs22\par
+
+\pard\par
+
+\pard\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+ \par
+           \par
+\par
+\par
+\par
+  \par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+               \par
+                              \par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 
